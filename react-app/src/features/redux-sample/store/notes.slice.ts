@@ -21,6 +21,8 @@ const notesSlice = createSlice({
         console.log("Запрашиваем сохраненные записи...");
       })
       .addCase(getNotesThunk.fulfilled, (state, action) => {
+        console.log("Запросили данные");
+
         state.notes = action.payload;
       })
       .addCase(getNotesThunk.rejected, () => {

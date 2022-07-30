@@ -1,10 +1,19 @@
-// Узнать угол между часовыми стрелками без минут
-function clockAngle(h) {
-  return (6 - Math.abs(6 - (h % 12))) * (360 / 12);
+function duplicateCount(text) {
+  const mapa = {};
+  const lowerCasedText = text.toLowerCase();
+  let counter = 0;
+
+  for (let char of lowerCasedText) {
+    if (mapa[char] === 1) {
+      console.log(mapa, char, mapa[char]);
+      mapa[char]++;
+      counter++;
+    } else {
+      mapa[char] = 1;
+    }
+  }
+
+  return counter;
 }
 
-// Узнать угол между часовыми стрелками с минутами
-function clockAngleWithMinutes(h) {}
-
-console.log(clockAngle(5)); // 150
-console.log(clockAngle(20)); // 120
+console.log(duplicateCount("Indivisibilities")); //2

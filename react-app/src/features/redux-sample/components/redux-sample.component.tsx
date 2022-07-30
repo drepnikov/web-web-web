@@ -16,6 +16,10 @@ const ReduxSampleComponent: React.FC<
 
   useEffect(() => {
     dispatch(getNotesThunk());
+
+    return () => {
+      console.log("размонтируемся...");
+    };
   }, [dispatch]);
 
   return (
