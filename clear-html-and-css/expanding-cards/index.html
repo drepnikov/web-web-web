@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Expanding Cards</title>
+  </head>
+
+  <style>
+    body {
+      margin: 0;
+    }
+
+    .container {
+      display: flex;
+      height: 100vh;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1.5rem;
+      padding: 0 150px;
+    }
+
+    h1 {
+      opacity: 0;
+      font-size: 21px;
+      padding-left: 35px;
+      padding-bottom: 15px;
+      transition: opacity 0.5s ease-in;
+      color: white;
+    }
+
+    .container div {
+      border: 1px solid dimgray;
+      height: 80vh;
+      border-radius: 50px;
+      display: flex;
+      align-items: end;
+      flex-grow: 0.5;
+      cursor: pointer;
+      transition: flex-grow 0.9s;
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+
+    .container div.active {
+      flex-grow: 5;
+    }
+
+    .active h1 {
+      opacity: 1;
+    }
+  </style>
+  <body>
+    <section class="container">
+      <div style="background-image: url('img/1.avif')" class="active">
+        <h1>Исследуй мир</h1>
+      </div>
+      <div style="background-image: url('img/2.avif')"><h1>Дикий лес</h1></div>
+      <div style="background-image: url('img/3.avif')">
+        <h1>Солнечный пляж</h1>
+      </div>
+      <div style="background-image: url('img/4.avif')">
+        <h1>Город зимы</h1>
+      </div>
+      <div style="background-image: url('img/5.avif')">
+        <h1>Небесные горы</h1>
+      </div>
+    </section>
+
+    <script>
+      const container = document.querySelector(".container");
+
+      container.addEventListener("click", (e) => {
+        if (e.target.tagName !== "DIV") return;
+
+        document.querySelector(".active").classList.remove("active");
+
+        e.target.classList.add("active");
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Hidden search</title>
+  </head>
+  <style>
+    body {
+      margin: 0;
+    }
+
+    .container {
+      position: relative;
+      background-color: #7d5fff;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .search-btn {
+      cursor: pointer;
+    }
+
+    .hidden-search {
+      padding: 10px 15px;
+      background-color: #fff;
+      display: flex;
+    }
+
+    .input-search {
+      width: 0;
+      padding: 0;
+      outline: none;
+      border: none;
+      font-size: 18px;
+      transition: width 0.3s ease;
+    }
+
+    .expanded .input-search {
+      width: 200px;
+      margin-right: 15px;
+    }
+  </style>
+  <body>
+    <div class="container">
+      <div class="hidden-search">
+        <input placeholder="Search" class="input-search" type="text" />
+        <img class="search-btn" src="icons/search-icon.svg" />
+      </div>
+    </div>
+
+    <script>
+      const hiddenSearch = document.querySelector(".hidden-search");
+      const searchBtn = document.querySelector(".search-btn");
+
+      searchBtn.addEventListener("click", () => {
+        hiddenSearch.classList.toggle("expanded");
+      });
+    </script>
+  </body>
+</html>

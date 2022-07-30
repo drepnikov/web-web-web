@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    />
+    <title>Vertical slider</title>
+
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Open Sans", sans-serif;
+      }
+
+      .vertical-slider {
+        height: 100vh;
+        position: relative;
+        overflow: hidden;
+        display: flex;
+      }
+
+      .control-buttons {
+        display: flex;
+        position: absolute;
+        align-items: start;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        left: 35vw;
+      }
+
+      button {
+        border: none;
+        background-color: white;
+        width: 45px;
+        height: 45px;
+        cursor: pointer;
+      }
+
+      .prev-btn {
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+        margin-top: 45px;
+      }
+
+      .next-btn {
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+      }
+
+      .slider-container {
+        transition: transform 0.5s ease-in-out;
+      }
+
+      .description-slider {
+        width: 35vw;
+        color: white;
+      }
+
+      .image-slider {
+        width: 65vw;
+      }
+
+      .image-slider img {
+        width: 100%;
+        height: 100%;
+        padding: 0;
+        margin: 0;
+        object-fit: cover;
+        object-position: center;
+      }
+
+      .slide {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        width: 100%;
+      }
+
+      .slide-1 {
+        background-color: #6fa5c1;
+      }
+
+      .slide-2 {
+        background-color: #355039;
+      }
+
+      .slide-3 {
+        background-color: #ccad95;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="vertical-slider">
+      <div class="slider-container description-slider">
+        <div class="slide slide-1">
+          <h1>Небесные горы</h1>
+        </div>
+        <div class="slide slide-2">
+          <h1>Дикий лес</h1>
+        </div>
+        <div class="slide slide-3">
+          <h1>Солнечный пляж</h1>
+        </div>
+      </div>
+      <div class="slider-container image-slider">
+        <div class="slide slide-3">
+          <img alt="pic2" src="img/4.avif" />
+        </div>
+
+        <div class="slide slide-2">
+          <img alt="pic2" src="img/5.avif" />
+        </div>
+        <div class="slide slide-1">
+          <img alt="pic1" src="img/1.avif" />
+        </div>
+      </div>
+      <div class="control-buttons">
+        <button class="prev-btn"><i class="fas fa-arrow-up"></i></button>
+        <button class="next-btn"><i class="fas fa-arrow-down"></i></button>
+      </div>
+    </div>
+
+    <script>
+      const prevBtn = document.querySelector(".prev-btn");
+      const nextBtn = document.querySelector(".next-btn");
+      const descriptionSlider = document.querySelector(".description-slider");
+      const imageSlider = document.querySelector(".image-slider");
+
+      const slidesCount = document.querySelectorAll(
+        ".description-slider .slide"
+      ).length;
+
+      let descriptionActiveSlide = 0;
+      let imageActiveSlide = 2;
+
+      setTransform();
+
+      prevBtn.addEventListener("click", () => {
+        descriptionActiveSlide--;
+        imageActiveSlide++;
+
+        if (descriptionActiveSlide < 0)
+          descriptionActiveSlide = slidesCount - 1;
+        if (imageActiveSlide > slidesCount - 1) imageActiveSlide = 0;
+
+        setTransform();
+      });
+
+      nextBtn.addEventListener("click", () => {
+        descriptionActiveSlide++;
+        imageActiveSlide--;
+
+        if (descriptionActiveSlide > slidesCount - 1)
+          descriptionActiveSlide = 0;
+        if (imageActiveSlide < 0) imageActiveSlide = slidesCount - 1;
+
+        setTransform();
+      });
+
+      function setTransform() {
+        descriptionSlider.style.transform = `translateY(-${
+          descriptionActiveSlide * 100
+        }vh)`;
+
+        imageSlider.style.transform = `translateY(-${
+          imageActiveSlide * 100
+        }vh)`;
+      }
+    </script>
+  </body>
+</html>

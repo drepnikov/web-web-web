@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Progress steps</title>
+  </head>
+  <style>
+    :root {
+      --active-color: #3498db;
+      --disabled-color: #e0e0e0;
+    }
+
+    body {
+      margin: 0;
+      height: 100vh;
+      background-color: #f6f7fb;
+      font-size: 14px;
+    }
+
+    .progress-stepper {
+      position: absolute;
+      width: 500px;
+      margin: auto;
+      right: 0;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .container {
+      display: flex;
+      padding: 25px;
+    }
+
+    .point {
+      display: flex;
+      position: relative;
+      align-items: center;
+    }
+
+    .progress {
+      position: relative;
+      height: 3px;
+      background-color: var(--disabled-color);
+      width: 70px;
+      z-index: 1;
+    }
+
+    .progress:before {
+      content: "";
+      z-index: 0;
+      top: 0;
+      left: 0;
+      position: absolute;
+      height: 3px;
+      width: 100%;
+      transform: scaleX(0);
+      background-color: var(--active-color);
+      transition: transform 0.2s ease-in;
+      transform-origin: left center;
+    }
+
+    .value {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 3px solid var(--disabled-color);
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      color: #999;
+    }
+
+    .point.done .value {
+      border-color: var(--active-color);
+    }
+
+    .point.done .progress:before {
+      transform: scaleX(1);
+    }
+
+    button {
+      border: none;
+      color: white;
+      padding: 8px 30px;
+      margin: 5px;
+      background-color: var(--active-color);
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    button[disabled] {
+      background-color: var(--disabled-color);
+      cursor: not-allowed;
+    }
+
+    button:active {
+      transform: scale(0.95);
+    }
+  </style>
+  <body>
+    <div class="progress-stepper">
+      <div class="container">
+        <div class="point done">
+          <div class="value">1</div>
+        </div>
+        <div class="point">
+          <span class="progress"></span>
+          <div class="value">2</div>
+        </div>
+        <div class="point">
+          <span class="progress"></span>
+          <div class="value">3</div>
+        </div>
+        <div class="point">
+          <span class="progress"></span>
+          <div class="value">4</div>
+        </div>
+      </div>
+      <div>
+        <button disabled class="prevBtn">Prev</button>
+        <button class="nextBtn">Next</button>
+      </div>
+    </div>
+    <script>
+      const points = document.querySelectorAll(".point");
+      const prevButton = document.querySelector(".prevBtn");
+      const nextButton = document.querySelector(".nextBtn");
+
+      nextButton.addEventListener("click", () => {
+        Array.from(points).some((point, i) => {
+          if (!point.classList.contains("done")) {
+            point.classList.add("done");
+            prevButton.removeAttribute("disabled");
+
+            if (i === points.length - 1)
+              nextButton.setAttribute("disabled", "true");
+
+            return true;
+          }
+
+          return false;
+        });
+      });
+
+      prevButton.addEventListener("click", () => {
+        Array.from(points)
+          .reverse()
+          .some((point, i) => {
+            if (point.classList.contains("done")) {
+              point.classList.remove("done");
+              nextButton.removeAttribute("disabled");
+
+              if (i === points.length - 2)
+                prevButton.setAttribute("disabled", true);
+
+              return true;
+            }
+
+            return false;
+          });
+      });
+    </script>
+  </body>
+</html>
