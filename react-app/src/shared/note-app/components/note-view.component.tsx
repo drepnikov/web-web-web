@@ -1,5 +1,5 @@
 import * as React from "react";
-import { NoteInterface } from "data/note-app/types/note.type";
+import { NoteInterface } from "src/shared/note-app/types/note.type";
 
 interface INoteViewComponentProps {
   note: NoteInterface;

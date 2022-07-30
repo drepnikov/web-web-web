@@ -1,7 +1,7 @@
 import * as React from "react";
-import { HeaderComponent } from "data/note-app/components/header.component";
-import { ListComponent } from "data/note-app/components/list.component";
-import { NoteAppPropsInterface } from "data/note-app/types/note-app-props.type";
+import { NoteAppPropsInterface } from "src/shared/note-app/types/note-app-props.type";
+import { HeaderComponent } from "src/shared/note-app/components/header.component";
+import { ListComponent } from "src/shared/note-app/components/list.component";
 
 const NoteAppFeature: React.FC<NoteAppPropsInterface> = (props) => {
   return (

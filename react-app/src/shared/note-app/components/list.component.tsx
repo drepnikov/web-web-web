@@ -1,7 +1,7 @@
 import * as React from "react";
-import { NoteAppPropsInterface } from "data/note-app/types/note-app-props.type";
-import { NoteViewComponent } from "data/note-app/components/note-view.component";
-import { NoteEditComponent } from "data/note-app/components/note-edit.component";
+import { NoteAppPropsInterface } from "src/shared/note-app/types/note-app-props.type";
+import { NoteEditComponent } from "src/shared/note-app/components/note-edit.component";
+import { NoteViewComponent } from "src/shared/note-app/components/note-view.component";
 
 const ListComponent: React.FC<NoteAppPropsInterface> = ({ notes, onAdd }) => {
   return (
