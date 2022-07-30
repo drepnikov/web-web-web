@@ -1,9 +1,9 @@
 import * as React from "react";
-import logo from "src/shared/note-app/assets/images/keep.png";
+import logo from "src/shared/components/note-app/assets/images/keep.png";
 
 interface IHeaderComponentProps {}
 
-const HeaderComponent: React.FC<IHeaderComponentProps> = () => {
+const NoteHeaderComponent: React.FC<IHeaderComponentProps> = () => {
   return (
     <div className="border-b border-whiteMilk px-10 py-3">
       <div className="flex items-center">
@@ -14,4 +14,4 @@ const HeaderComponent: React.FC<IHeaderComponentProps> = () => {
   );
 };
 
-export { HeaderComponent };
+export { NoteHeaderComponent };

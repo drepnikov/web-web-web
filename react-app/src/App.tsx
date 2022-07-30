@@ -1,22 +1,19 @@
 import React from "react";
-import { NoteAppFeature } from "src/shared/note-app/note-app.feature";
+import { mobxSampleFeature } from "src/features/mobx-sample/mobx-sample.feature";
+import { Navigate, Route, Routes } from "react-router-dom";
 
-function App() {
+const App: React.FC = () => {
+  const routes = [mobxSampleFeature.router()];
+
   return (
-    <div>
-      <NoteAppFeature
-        notes={[
-          {
-            content: "123",
-            id: "12321",
-            pinned: false,
-            title: "12312312",
-          },
-        ]}
-        onAdd={() => {}}
-      />
-    </div>
-  );
-}
+    <Routes>
+      <Route path={"/"} element={<div>Оно живое!!!</div>} />
 
-export default App;
+      {routes}
+
+      <Route path={"*"} element={<Navigate to={"/"} />} />
+    </Routes>
+  );
+};
+
+export { App };

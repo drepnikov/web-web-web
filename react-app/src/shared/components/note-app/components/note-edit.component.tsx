@@ -1,8 +1,8 @@
 import * as React from "react";
-import { NoteInterface } from "src/shared/note-app/types/note.type";
-import { useOutsideClick } from "src/shared/note-app/hooks/useOutsideClick";
+import { NoteInterface } from "src/shared/components/note-app/types/note.type";
+import { useOutsideClick } from "src/shared/components/note-app/hooks/useOutsideClick";
 import { useRef, useState } from "react";
-import { InputTextComponent } from "src/shared/note-app/components/ui/input-text.component";
+import { InputTextComponent } from "src/shared/components/note-app/components/ui/input-text.component";
 
 interface INoteEditComponentProps {
   note?: NoteInterface;
