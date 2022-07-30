@@ -1,4 +1,4 @@
-import { NoteInterface } from "src/shared/components/note-app/types/note.type";
+import { NoteInterface } from "src/shared/components/note-app/types/note.interface";
 
 class NoteAppService {
   async getNotesFromBackend(): Promise<NoteInterface[]> {

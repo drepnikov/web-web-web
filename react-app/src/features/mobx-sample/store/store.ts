@@ -1,4 +1,4 @@
-import { NoteInterface } from "src/shared/components/note-app/types/note.type";
+import { NoteInterface } from "src/shared/components/note-app/types/note.interface";
 import { makeAutoObservable, runInAction } from "mobx";
 import { noteAppService } from "src/shared/components/note-app/note-app.service";
 
