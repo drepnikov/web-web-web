@@ -2,7 +2,7 @@ import { NoteInterface } from "src/shared/components/note-app/types/note.interfa
 import { makeAutoObservable, runInAction } from "mobx";
 import { noteAppService } from "src/shared/components/note-app/note-app.service";
 
-class Store {
+class MobxStore {
   notes: NoteInterface[] = [];
 
   constructor() {
@@ -22,4 +22,4 @@ class Store {
   }
 }
 
-export const store = new Store();
+export const mobxStore = new MobxStore();

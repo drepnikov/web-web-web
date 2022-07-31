@@ -5,7 +5,7 @@ import { NoteHeaderComponent } from "src/shared/components/note-app/components/n
 
 const NoteAppComponent: React.FC<NoteAppPropsInterface> = (props) => {
   return (
-    <section className="text-whiteMilk h-screen bg-lightBlack">
+    <section className="text-whiteMilk min-h-screen	 h-full bg-lightBlack">
       {/* Header */}
       <NoteHeaderComponent />
 

@@ -27,18 +27,6 @@ class NoteAppService {
         pinned: false,
         id: "4",
       },
-      {
-        title: "Привет мир",
-        content: "Содержимое заметки5",
-        pinned: false,
-        id: "5",
-      },
-      {
-        title: "Привет мир",
-        content: "Содержимое заметки6",
-        pinned: false,
-        id: "6",
-      },
     ];
   }
 }
