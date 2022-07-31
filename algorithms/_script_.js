@@ -1,29 +1,10 @@
-/**
- * @param {string} s
- * @return {boolean}
- */
-var isValid = function (s) {
-  const mapa = {
-    "[": "]",
-    "{": "}",
-    "(": ")",
-  };
+// Узнать угол между часовыми стрелками без минут
+function clockAngle(h) {
+  return (6 - Math.abs(6 - (h % 12))) * (360 / 12);
+}
 
-  const needToClose = [];
+// Узнать угол между часовыми стрелками с минутами
+function clockAngleWithMinutes(h) {}
 
-  for (let p of s) {
-    if (p in mapa) {
-      needToClose.push(mapa[p]);
-    } else {
-      const needed = needToClose.pop();
-
-      if (needed !== p) return false;
-    }
-  }
-
-  return needToClose.length ? false : true;
-};
-
-console.log(isValid("()"));
-console.log(isValid("()[]{}"));
-console.log(isValid("(]"));
+console.log(clockAngle(5)); // 150
+console.log(clockAngle(20)); // 120

@@ -20,6 +20,7 @@ const ReduxSampleComponent: React.FC<
 
   return (
     <NoteAppComponent
+      label={"redux-sample"}
       notes={notes}
       onAdd={(note) => {
         dispatch(addNote(note));

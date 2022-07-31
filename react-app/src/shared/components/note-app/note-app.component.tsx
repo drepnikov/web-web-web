@@ -7,7 +7,7 @@ const NoteAppComponent: React.FC<NoteAppPropsInterface> = (props) => {
   return (
     <section className="text-whiteMilk min-h-screen	 h-full bg-lightBlack">
       {/* Header */}
-      <NoteHeaderComponent />
+      <NoteHeaderComponent label={props.label} />
 
       {/* Render list */}
       <NoteListComponent {...props} />

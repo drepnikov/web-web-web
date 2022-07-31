@@ -15,6 +15,7 @@ const MobxSampleComponent: React.FC<MobxSampleComponentPropsInterface> =
     return (
       <>
         <NoteAppComponent
+          label={"mobx-sample"}
           /* Прокидиываю через .map массив, чтобы целевой компонент где выводится список в observer не оборачивать:\ А без пробега по массиву ререндер не происходит текущего компонента */
           notes={mobxStore.notes.map((note) => note)}
           onAdd={(note) => {
