@@ -1,19 +1,20 @@
-function duplicateCount(text) {
-  const mapa = {};
-  const lowerCasedText = text.toLowerCase();
-  let counter = 0;
+function longestPrefix(strs) {
+  const word = strs[0].split("");
+  let result = "";
 
-  for (let char of lowerCasedText) {
-    if (mapa[char] === 1) {
-      console.log(mapa, char, mapa[char]);
-      mapa[char]++;
-      counter++;
-    } else {
-      mapa[char] = 1;
+  for (let [charIndex, char] of word.entries()) {
+    for (let i = 1; i < strs.length; i++) {
+      const nextWord = strs[i];
+
+      if (nextWord[charIndex] !== char) {
+        return result;
+      }
     }
+
+    result += char;
   }
 
-  return counter;
+  return result;
 }
 
-console.log(duplicateCount("Indivisibilities")); //2
+console.log(longestPrefix(["linee", "lineen", "lineery"]));
