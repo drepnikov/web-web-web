@@ -1,8 +1,12 @@
 import { Injectable } from '@nestjs/common';
+import { PrismaService } from 'src/prisma.service';
+import { Tag } from '@prisma/client';
 
 @Injectable()
 export class TagService {
-  async findAll(): Promise<string[]> {
-    return ['моки', 'моки', 'моки'];
+  constructor(private readonly prismaService: PrismaService) {}
+
+  async findAll(): Promise<Tag[]> {
+    return this.prismaService.tag.findMany();
   }
 }

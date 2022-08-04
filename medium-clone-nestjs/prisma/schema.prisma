@@ -9,3 +9,11 @@ datasource db {
   provider = "mysql"
   url      = env("DATABASE_URL")
 }
+
+model Tag {
+    @@map("tags")
+
+    id Int @default(autoincrement()) @id
+
+    name String @db.VarChar(255)
+}
