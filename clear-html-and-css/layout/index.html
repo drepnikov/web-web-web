@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      ul {
+        list-style: none;
+      }
+
+      body {
+        background-color: #565656;
+      }
+
+      main {
+        width: 1160px;
+        margin: auto;
+      }
+
+      header {
+        background-color: #fff;
+        height: 10vh;
+        outline: 1px solid red;
+        display: flex;
+        justify-content: space-between;
+        padding: 0 80px;
+        align-items: center;
+      }
+
+      header > div:first-of-type {
+        width: 80px;
+        height: 80px;
+        background-color: #565656;
+        border-radius: 50%;
+      }
+
+      header > ul {
+        display: flex;
+        color: white;
+      }
+
+      header > ul > li {
+        padding: 15px;
+        margin: 5px;
+        background-color: #565656;
+      }
+
+      article {
+        outline: 1px solid green;
+        height: 25vh;
+        display: flex;
+      }
+
+      article > div:first-of-type {
+        outline: 1px solid red;
+        flex-basis: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      article > div:first-of-type > div {
+        outline: 1px solid blue;
+        width: 90%;
+        height: 80%;
+      }
+
+      article > div:nth-child(2) {
+        outline: 1px solid red;
+        flex-basis: 50%;
+        padding: 25px;
+        color: white;
+      }
+
+      article > div:nth-child(2) h2 {
+        margin-bottom: 15px;
+      }
+
+      section {
+        outline: 1px solid green;
+        height: 55vh;
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      section > div {
+        outline: 1px solid yellow;
+        flex-basis: 33.3%;
+        height: 50%;
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+      }
+
+      section > div > div {
+        width: 100%;
+        height: 40%;
+        outline: 1px solid #ccad95;
+        margin: 0 auto;
+        margin-bottom: 10px;
+      }
+
+      footer {
+        outline: 1px solid green;
+        height: 10vh;
+        background-color: #fff;
+        display: flex;
+        justify-content: space-around;
+      }
+
+      footer > div {
+        padding: 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <div></div>
+        <ul>
+          <li>Option 1</li>
+          <li>Option 2</li>
+          <li>Option 3</li>
+        </ul>
+      </header>
+      <article>
+        <div>
+          <div></div>
+        </div>
+        <div>
+          <h2>Title</h2>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum in
+          neque perferendis, quibusdam similique temporibus! A accusamus aliquid
+          consectetur ex in, inventore labore laborum omnis quisquam tenetur
+          totam ullam unde! Lorem ipsum dolor sit amet, consectetur adipisicing
+          elit. Consequatur enim esse facere illum, inventore labore maxime
+          minus mollitia nam nisi quibusdam quisquam sed unde veniam vero vitae
+          voluptatum! Nobis, voluptatibus?
+        </div>
+      </article>
+      <section>
+        <div>
+          <div></div>
+          <h2>Title</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. At
+            distinctio earum error est expedita explicabo magnam neque nesciunt
+            nostrum officiis quas, ratione, sequi tempore temporibus totam vel
+            veniam voluptas voluptatum?
+          </p>
+        </div>
+        <div>
+          <div></div>
+          <h2>Title</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. At
+            distinctio earum error est expedita explicabo magnam neque nesciunt
+            nostrum officiis quas, ratione, sequi tempore temporibus totam vel
+            veniam voluptas voluptatum?
+          </p>
+        </div>
+        <div>
+          <div></div>
+          <h2>Title</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. At
+            distinctio earum error est expedita explicabo magnam neque nesciunt
+            nostrum officiis quas, ratione, sequi tempore temporibus totam vel
+            veniam voluptas voluptatum?
+          </p>
+        </div>
+        <div>
+          <div></div>
+          <h2>Title</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. At
+            distinctio earum error est expedita explicabo magnam neque nesciunt
+            nostrum officiis quas, ratione, sequi tempore temporibus totam vel
+            veniam voluptas voluptatum?
+          </p>
+        </div>
+        <div>
+          <div></div>
+          <h2>Title</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. At
+            distinctio earum error est expedita explicabo magnam neque nesciunt
+            nostrum officiis quas, ratione, sequi tempore temporibus totam vel
+            veniam voluptas voluptatum?
+          </p>
+        </div>
+        <div>
+          <div></div>
+          <h2>Title</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. At
+            distinctio earum error est expedita explicabo magnam neque nesciunt
+            nostrum officiis quas, ratione, sequi tempore temporibus totam vel
+            veniam voluptas voluptatum?
+          </p>
+        </div>
+      </section>
+      <footer>
+        <div>
+          <h2>Title</h2>
+          <p>Lorem ipsum dolor sit amet</p>
+        </div>
+        <div>
+          <h2>Title</h2>
+          <p>Lorem ipsum dolor sit amet</p>
+        </div>
+        <div>
+          <h2>Title</h2>
+          <p>Lorem ipsum dolor sit amet</p>
+        </div>
+        <div>
+          <h2>Title</h2>
+          <p>Lorem ipsum dolor sit amet</p>
+        </div>
+      </footer>
+    </main>
+  </body>
+</html>
