@@ -1,7 +1,7 @@
 import { FeatureInterface } from "src/shared/types/feature.interface";
 import { Fragment } from "react";
 import { Route } from "react-router-dom";
-import { SandboxComponent } from "src/features/sandbox/components/sandbox.component";
+import { SandboxComponent } from "src/features/sandbox/sandbox.component";
 
 export class SandboxFeature implements FeatureInterface {
   router() {
