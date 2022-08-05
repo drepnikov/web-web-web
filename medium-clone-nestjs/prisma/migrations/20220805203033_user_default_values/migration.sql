@@ -1,0 +1,3 @@
+-- AlterTable
+ALTER TABLE `users` MODIFY `bio` VARCHAR(500) NOT NULL DEFAULT '',
+    MODIFY `image` VARCHAR(191) NOT NULL DEFAULT '';

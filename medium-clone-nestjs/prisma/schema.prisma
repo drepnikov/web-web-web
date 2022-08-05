@@ -10,10 +10,21 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Tag {
-    @@map("tags")
+model TagEntity {
+  id Int @id @default(autoincrement())
 
-    id Int @default(autoincrement()) @id
+  name String
 
-    name String @db.VarChar(255)
+  @@map("tags")
+}
+
+model UserEntity {
+  id       Int    @id @default(autoincrement())
+  email    String
+  username String
+  bio      String @db.VarChar(500) @default("")
+  image    String @default("")
+  password String
+
+  @@map("users")
 }
