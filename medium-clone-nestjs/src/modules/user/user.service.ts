@@ -39,14 +39,10 @@ export class UserService {
         ...createUserDto,
         password: await this.hashPassword(createUserDto.password),
       },
-      select: { email: true, image: true, username: true, bio: true, id: true },
+      select: this.userVisibleFields(),
     });
 
     return newUser;
-  }
-
-  private async hashPassword(password: string): Promise<string> {
-    return hash(password, 10);
   }
 
   buildResponse(user: UserType): UserResponseInterface {
@@ -67,5 +63,13 @@ export class UserService {
       },
       JWT_SECRET,
     );
+  }
+
+  private async hashPassword(password: string): Promise<string> {
+    return hash(password, 10);
+  }
+
+  private userVisibleFields() {
+    return { email: true, image: true, username: true, bio: true, id: true };
   }
 }
