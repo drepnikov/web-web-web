@@ -1,23 +1,50 @@
 import * as React from "react";
+import { useEffect, useState } from "react";
 
 interface SandboxComponentPropsInterface {}
 
+const fetchUsers = (): Promise<{ id: number; name: string }[]> =>
+  new Promise((resolve) => {
+    setTimeout(() => {
+      resolve([
+        { id: 123, name: "Dima" },
+        { id: 456, name: "Vasya" },
+      ]);
+    }, 3000);
+  });
+
+const useUsers = () => {
+  const [loading, setLoading] = useState(false);
+  const [data, setData] = useState<{ id: number; name: string }[]>();
+
+  useEffect(() => {
+    setLoading(true);
+
+    fetchUsers().then((res) => {
+      console.log("готово");
+      setLoading(false);
+      setData(res);
+    });
+  }, []);
+
+  return { loading, data };
+};
+
 const SandboxComponent: React.FC<SandboxComponentPropsInterface> = () => {
+  const { loading, data } = useUsers();
+
+  if (loading) return <div>Загружаю...</div>;
+
   return (
-    <div>
-      <img
-        width="500"
-        src="https://images.unsplash.com/photo-1659201045838-7905e3656417?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80"
-      />
-      <img
-        width="500"
-        src="https://images.unsplash.com/photo-1659355863904-a6b023894b4f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
-      />
-      <img
-        width="500"
-        src="https://images.unsplash.com/photo-1656189641630-baf5189a42e4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
-      />
-    </div>
+    <ul>
+      {data?.map((user) => {
+        return (
+          <li>
+            <h3>{user.name}</h3>
+          </li>
+        );
+      })}
+    </ul>
   );
 };
 
