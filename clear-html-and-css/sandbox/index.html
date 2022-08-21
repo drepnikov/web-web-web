@@ -15,59 +15,35 @@
       }
 
       .wrapper {
-        outline: 1px solid red;
-        width: 200px;
-        height: 200px;
+        display: flex;
+        flex-wrap: wrap;
+        width: 600px;
       }
 
       .child {
-        outline: 1px solid green;
-        width: 100%;
-        height: 100%;
-        padding: 5px;
+        width: 100px;
+        height: 100px;
+        border-right: 1px solid #f00;
+        border-radius: 0 50% 50% 0;
       }
     </style>
   </head>
   <body>
-    <div class="wrapper">
-      <div class="child"></div>
+    <div id="root" style="background: red">
+      root
+      <span id="id1" style="background: lightblue">id1</span>
+      <div id="id2" style="background: green">
+        id2
+        <div id="id3" style="background: yellow">id3</div>
+      </div>
     </div>
 
     <script>
-      function fetchUrl(url) {
-        return new Promise((resolve, reject) => {
-          function myFetch(attempt) {
-            fetch(url)
-              .then((res) => {
-                if (!res.ok) {
-                  if (attempt === 5) {
-                    reject("Ошибка!");
-                  } else {
-                    myFetch(attempt + 1);
-                  }
-                } else {
-                  resolve(res);
-                }
-              })
-              .catch((e) => {
-                if (attempt === 5) {
-                  reject("Ошибка!");
-                } else {
-                  myFetch(attempt + 1);
-                }
-              });
-          }
+      const root = document.getElementById("root");
 
-          myFetch(1);
-        });
-      }
-
-      /* Необходимо реализовать функцию fetchUrl, которая будет использоваться следующим образом. Внутри fetchUrl можно использовать условный метод fetch, который просто возвращает Promise с содержимым страницы или вызывает reject */
-      fetchUrl("https://google/com")
-        .then((res) => console.log("Ура! Тело -", res))
-        .catch((e) => {
-          console.log(`${e}`);
-        }); // сatch должен сработать только после 5 неудачных попыток получить содержимое страницы внутри fetchUrl
+      root.addEventListener("click", (e) => {
+        console.log(e.target.id);
+      });
     </script>
   </body>
 </html>

@@ -1,23 +1,22 @@
-// https://leetcode.com/problems/longest-substring-without-repeating-characters/submissions/
+function lengthOfLongestUnique(arr) {
+  let maxLength = 0;
+  let unique = new Set();
 
-var lengthOfLongestSubstring = function (s) {
-  const slice = new Set();
-  let longestLength = 0;
+  for (let n of arr) {
+    while (unique.has(n)) {
+      const firstValue = unique.values().next().value;
 
-  for (let i = 0; i < s.length; i++) {
-    while (slice.has(s[i])) {
-      const needToDelete = slice.values().next().value;
-
-      slice.delete(needToDelete);
+      unique.delete(firstValue);
     }
 
-    slice.add(s[i]);
-    longestLength = Math.max(longestLength, slice.size);
+    unique.add(n);
+
+    maxLength = Math.max(maxLength, unique.size);
   }
 
-  return longestLength;
-};
+  return maxLength;
+}
 
-console.log(lengthOfLongestSubstring("abcabcbb")); //3
-console.log(lengthOfLongestSubstring("bbbbb")); //1
-console.log(lengthOfLongestSubstring("pwwkew")); //3
+console.log(lengthOfLongestUnique([1, 2, 3, 1, 2, 3, 2, 2])); // [1,2,3]
+console.log(lengthOfLongestUnique([1, 1, 1, 1, 1])); //1 [1]
+console.log(lengthOfLongestUnique([1, 2, 2, 3, 4, 2])); //3 [2,3,4]
