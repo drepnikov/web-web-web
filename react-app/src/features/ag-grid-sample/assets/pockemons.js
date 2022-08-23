@@ -2,7 +2,7 @@ export const POCKEMONS = [
   { id: 1, name: "Bulbasaur_123", typeList: ["Grass", "Poison"] },
   { id: 2, name: "Ivysaur_123", typeList: ["Grass", "Poison"] },
   { id: 3, name: "Venusaur_123", typeList: ["Grass", "Poison"] },
-  { id: 4, name: "Charmander", typeList: ["Fire"] },
+  { id: 4, name: "Charmander_123", typeList: ["Fire"] },
   { id: 5, name: "Charmeleon", typeList: ["Fire"] },
   { id: 6, name: "Charizard", typeList: ["Fire", "Flying"] },
   { id: 7, name: "Squirtle", typeList: ["Water"] },
