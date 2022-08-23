@@ -1,5 +1,5 @@
 export const POCKEMONS = [
-  { id: 1, name: "Bulbasaur", typeList: ["Grass", "Poison"] },
+  { id: 1, name: "Bulbasaur_123", typeList: ["Grass", "Poison"] },
   { id: 2, name: "Ivysaur", typeList: ["Grass", "Poison"] },
   { id: 3, name: "Venusaur", typeList: ["Grass", "Poison"] },
   { id: 4, name: "Charmander", typeList: ["Fire"] },
